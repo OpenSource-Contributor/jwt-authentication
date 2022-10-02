@@ -3,6 +3,7 @@ package com.hasee.jwt.model;
 import com.hasee.jwt.constants.MyConstants;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "USER", uniqueConstraints = { @UniqueConstraint(columnNames = "username"), @UniqueConstraint(columnNames = "email") })
@@ -14,6 +15,15 @@ public class User
 
 	@Column(name = "USERNAME", length = 20, nullable = false)
 	private String username;
+
+	@Column(name = "FIRST_NAME", length = 50)
+	private String firstName;
+
+	@Column(name = "LAST_NAME", length = 50)
+	private String lastName;
+
+	@Column(name = "DOB")
+	private LocalDate dob;
 
 	@Column(name = "EMAIL", length = 50, nullable = false)
 	private String email;
@@ -84,5 +94,35 @@ public class User
 	public void setRole( MyConstants.RoleType role )
 	{
 		this.role = role;
+	}
+
+	public String getFirstName()
+	{
+		return firstName;
+	}
+
+	public void setFirstName( String firstName )
+	{
+		this.firstName = firstName;
+	}
+
+	public String getLastName()
+	{
+		return lastName;
+	}
+
+	public void setLastName( String lastName )
+	{
+		this.lastName = lastName;
+	}
+
+	public LocalDate getDob()
+	{
+		return dob;
+	}
+
+	public void setDob( LocalDate dob )
+	{
+		this.dob = dob;
 	}
 }
