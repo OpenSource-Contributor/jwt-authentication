@@ -19,7 +19,7 @@ public class UserController implements IUserController
 	private IUserService userService;
 
 	@Override
-	public ResponseEntity<ResponseDto<UserView>> login( String version, String email, String password, MyConstants.RoleType userRole )
+	public ResponseEntity<ResponseDto<UserView>> login( String version, String email, String password, MyConstants.UserRole userRole )
 	{
 		if ( version == null || version.isEmpty() )
 		{
