@@ -1,6 +1,7 @@
 package com.hasee.jwt.model;
 
 import com.hasee.jwt.constants.MyConstants;
+import com.hasee.jwt.dto.UserView;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -33,7 +34,10 @@ public class User
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "ROLE", length = 20)
-	private MyConstants.RoleType role;
+	private MyConstants.UserRole role;
+
+	@Transient
+	private String loginToken;
 
 	public User()
 	{
@@ -86,12 +90,12 @@ public class User
 		this.password = password;
 	}
 
-	public MyConstants.RoleType getRole()
+	public MyConstants.UserRole getRole()
 	{
 		return role;
 	}
 
-	public void setRole( MyConstants.RoleType role )
+	public void setRole( MyConstants.UserRole role )
 	{
 		this.role = role;
 	}
@@ -124,5 +128,27 @@ public class User
 	public void setDob( LocalDate dob )
 	{
 		this.dob = dob;
+	}
+
+	public String getLoginToken()
+	{
+		return loginToken;
+	}
+
+	public void setLoginToken( String loginToken )
+	{
+		this.loginToken = loginToken;
+	}
+
+	public UserView getUserView()
+	{
+		UserView userView = new UserView();
+		return userView.setUserId( this.id ).
+				setUserName( this.username ).
+				setFirstName( this.firstName ).
+				setLastName( this.lastName ).
+				setEmail( this.email ).
+				setDob( this.dob ).
+				setLoginToken( this.loginToken );
 	}
 }

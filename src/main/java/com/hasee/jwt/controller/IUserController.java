@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = { "*" })
 public interface IUserController
 {
-	@RequestMapping(method = RequestMethod.POST, path = "/v{version}/signin", produces = "application/json")
-	ResponseEntity<ResponseDto<UserView>> login( @PathVariable String version, @RequestHeader String email, @RequestHeader String password, @RequestParam(required = false) MyConstants.RoleType userRole );
+	@RequestMapping(method = RequestMethod.POST, path = "/v{version}/signIn", produces = "application/json")
+	ResponseEntity<ResponseDto<UserView>> login( @PathVariable String version, @RequestHeader String email, @RequestHeader String password, @RequestParam(required = false) MyConstants.UserRole userRole );
 }

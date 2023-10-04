@@ -2,9 +2,9 @@ package com.hasee.jwt.constants;
 
 public interface MyConstants
 {
-	public enum RoleType {
+	public enum UserRole {
 		ADMIN,
-		SELLER,
-		CUSTOMER
+		STUDENT,
+		LECTURER
 	}
 }

@@ -6,6 +6,6 @@ import com.hasee.jwt.dto.UserView;
 
 public interface IUserService
 {
-	ResponseDto<UserView> loginUser( String email, String password, MyConstants.RoleType userRole );
+	ResponseDto<UserView> loginUser( String email, String password, MyConstants.UserRole userRole );
 
 }
